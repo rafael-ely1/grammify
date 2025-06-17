@@ -1,5 +1,6 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { Github, Instagram, Music2, Youtube } from "lucide-react"
-import Link from "next/link"
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg
@@ -56,7 +57,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <Link href="/" className="text-xl font-bold">
+            <Link to="/" className="text-xl font-bold">
               Company
             </Link>
             <p className="text-muted-foreground text-sm leading-6">
@@ -64,14 +65,16 @@ export function Footer() {
             </p>
             <div className="flex space-x-6">
               {socialLinks.map(item => (
-                <Link
+                <a
                   key={item.name}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-5 w-5" />
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -85,7 +88,7 @@ export function Footer() {
                   {footerNavigation.product.map(item => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        to={item.href}
                         className="text-muted-foreground hover:text-foreground text-sm leading-6"
                       >
                         {item.name}
@@ -102,7 +105,7 @@ export function Footer() {
                   {footerNavigation.company.map(item => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        to={item.href}
                         className="text-muted-foreground hover:text-foreground text-sm leading-6"
                       >
                         {item.name}
@@ -121,7 +124,7 @@ export function Footer() {
                   {footerNavigation.resources.map(item => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        to={item.href}
                         className="text-muted-foreground hover:text-foreground text-sm leading-6"
                       >
                         {item.name}
@@ -138,7 +141,7 @@ export function Footer() {
                   {footerNavigation.legal.map(item => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        to={item.href}
                         className="text-muted-foreground hover:text-foreground text-sm leading-6"
                       >
                         {item.name}
